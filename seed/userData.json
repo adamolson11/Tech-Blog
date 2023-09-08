@@ -1,0 +1,24 @@
+[
+    {
+      "userName": "john_dude",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johnDoe@gmail.com",
+      "password": "DudeAbides12345"
+    },
+    {
+      "userName": "turtle_power",
+      "firstName": "Leonardo",
+      "lastName": "Turtle",
+      "email": "cowabungaDude@gmail.com",
+      "password": "Pizza12345"
+    },
+    {
+      "userName": "8pack_abs",
+      "firstName": "Bruce",
+      "lastName": "Wayne",
+      "email": "Iheartbats@aol.com",
+      "password": "shadows12345"
+    }
+  ]
+  

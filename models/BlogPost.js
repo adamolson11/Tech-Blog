@@ -3,7 +3,7 @@ const sequelize = require('../config/connection'); // linking together this file
 
 class BlogPost extends Model {} //now using the model Object made available by sequelize.
 
-Project.init(
+BlogPost.init(
   {
     id: {
       type: DataTypes.INTEGER,
