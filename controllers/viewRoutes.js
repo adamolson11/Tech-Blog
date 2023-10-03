@@ -53,6 +53,16 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+  if (req.session.logged_in) {
+    req.session.destroy(() => {
+      res.redirect('/')
+    });
+  } else {
+    res.redirect('/login')
+  }
+});
+
 router.get('/profile', async (req, res) => {
   try {
     let user = await User.findByPk(req.session.user_id, {
@@ -91,9 +101,9 @@ router.get('/add-blogpost', (req, res) => {
   }
 });
 
-router.get('/success', async (req, res) => {
+router.get('/sucess', async (req, res) => {
   try {
-    res.render('success');
+    res.render('sucess');
   } catch (err) {
     res.status(500).json(err);
   }
