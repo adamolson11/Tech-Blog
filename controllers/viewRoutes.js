@@ -3,6 +3,19 @@ const { BlogPost, User } = require('../models');
 const { findByPk } = require('../models/User');
 const withAuth = require('../utils/auth');
 
+// router.get('/', async (req, res) => {
+//   try {
+//     const allBlogposts = await BlogPost.findAll({
+//       raw: true,
+//     });
+//     res.render('home', { allBlogposts, loggedIn: req.session.logged_in });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
+// Route for the main page
 router.get('/', async (req, res) => {
   try {
     const allBlogposts = await BlogPost.findAll({
@@ -10,10 +23,11 @@ router.get('/', async (req, res) => {
     });
     res.render('home', { allBlogposts, loggedIn: req.session.logged_in });
   } catch (err) {
-    console.log(err);
+    console.error(err);
     res.status(500).json(err);
   }
 });
+
 
 router.get('/blogposts', async (req, res) => {
   try {
@@ -108,5 +122,26 @@ router.get('/sucess', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Route for handling the creation of a new blog post
+router.post('/add-BlogPost', async (req, res) => {
+  try {
+    const { title, content } = req.body;
+
+    // Create the blog post in the database using Sequelize
+    const newBlogPost = await BlogPost.create({
+      title,
+      content,
+      user_id: req.session.user_id, // Assuming you have a user session with user_id
+    });
+
+    // Redirect the user to the home page after creating the blog post
+    res.redirect('/');
+  } catch (err) {
+    console.error(err);
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

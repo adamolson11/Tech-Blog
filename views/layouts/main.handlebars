@@ -37,6 +37,22 @@
     </div>
   </nav>
 
+  <!-- Display the list of blog posts -->
+  <div class="container">
+    <ul>
+      {{#each blogPosts}}
+        <li>
+          <h2>{{this.title}}</h2>
+          <p>{{this.content}}</p>
+          <p>Created at: {{this.created_at}}</p>
+        </li>
+      {{/each}}
+    </ul>
+
+    <!-- Add a link to create a new blog post -->
+    <a href="/add-blogpost">Create New Blog Post</a>
+  </div>
+
   {{{body}}}
   <script src="/js/logout.js"></script>
 </body>

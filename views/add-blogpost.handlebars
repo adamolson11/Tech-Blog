@@ -1,12 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Your Own Blog Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
 <div class="container row mx-auto col-10 col-md-8 col-lg-6">
-  <h2 class="fs-1 text-center mb-5 text-light fw-bolder">Add Your Own Recipe Below</h2>
+  <h2 class="fs-1 text-center mb-5 text-light fw-bolder">Add Your Own Blog Post Below</h2>
   <div class="align-items-center mb-5 bg-primary shadow-lg rounded-4 text-light p-4 bg-gradient">
-    <form>
-      <div class="mb-3">
-        <label for="recipeName" class="form-label">Enter your blogpost here. 
-        </label>
-        <input type="text" class="form-control shadow" id="recipeName">
-      </div>
+<form action="/add-BlogPost" method="POST">
+  <div class="mb-3">
+    <label for="blogPostTitle" class="form-label">Title</label>
+    <input type="text" class="form-control shadow" id="blogPostTitle" name="title">
+  </div>
+  <div class="mb-3">
+    <label for="blogPostContent" class="form-label">Content</label>
+    <textarea class="form-control shadow" id="blogPostContent" name="content"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Create Blog Post</button>
+</form>
 
-     
-<script src="/js/addBlogPost.js"></script>
+  </div>
+</div>
+
+</body>
+</html>
